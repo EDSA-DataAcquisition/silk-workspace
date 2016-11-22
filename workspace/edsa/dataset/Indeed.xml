@@ -1,6 +1,5 @@
-<Dataset id="Indeed" type="json">
+<Dataset id="Indeed" type="xml">
   <Param name="file" value="indeed.xml"/>
-  <Param name="basePath" value=""/>
+  <Param name="basePath" value="/response/results/result"/>
   <Param name="uriPattern" value=""/>
-  <Param name="charset" value="UTF8"/>
 </Dataset>
