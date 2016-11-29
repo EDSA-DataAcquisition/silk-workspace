@@ -1,15 +1,15 @@
 <TransformSpec>
         <TransformRule name="type" targetProperty="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-        <TransformInput id="unnamed_402" function="constantUri">
+        <TransformInput id="unnamed_2823" function="constantUri">
             
             <Param name="value" value="http://www.edsa-project.eu/edsa#JobPosting"/>
           </TransformInput>
       </TransformRule><TransformRule name="uri" targetProperty="">
-        <TransformInput id="unnamed_409" function="concat">
-            <TransformInput id="unnamed_407" function="constant">
+        <TransformInput id="unnamed_2830" function="concat">
+            <TransformInput id="unnamed_2828" function="constant">
             
             <Param name="value" value="http://www.edsa-project.eu/jobpost/"/>
-          </TransformInput><Input id="unnamed_408" path="/id"/>
+          </TransformInput><Input id="unnamed_2829" path="/id"/>
             <Param name="glue" value=""/>
           </TransformInput>
       </TransformRule><TransformRule name="source" targetProperty="http://schema.org/source">
@@ -18,22 +18,22 @@
             <Param name="value" value="adzuna"/>
           </TransformInput>
       </TransformRule><TransformRule name="title" targetProperty="http://schema.org/title">
-        <Input id="unnamed_411" path="/title"/>
+        <Input id="unnamed_2832" path="/title"/>
       </TransformRule><TransformRule name="description" targetProperty="http://schema.org/description">
-        <Input id="unnamed_413" path="/description"/>
+        <Input id="unnamed_2834" path="/description"/>
       </TransformRule><TransformRule name="url" targetProperty="http://schema.org/url">
-        <Input id="unnamed_415" path="/redirect_url"/>
+        <Input id="unnamed_2836" path="/redirect_url"/>
       </TransformRule><TransformRule name="id" targetProperty="http://www.semanticweb.org/elisasibarani/ontologies/2016/0/untitled-ontology-51#id">
-        <Input id="unnamed_417" path="/id"/>
+        <Input id="unnamed_2838" path="/id"/>
       </TransformRule><TransformRule name="employmentType" targetProperty="http://schema.org/employmentType">
-        <Input id="unnamed_419" path="/contract_type"/>
+        <Input id="unnamed_2840" path="/contract_type"/>
       </TransformRule><TransformRule name="datePosted" targetProperty="http://schema.org/datePosted">
-        <Input id="unnamed_421" path="/created"/>
+        <Input id="unnamed_2842" path="/created"/>
       </TransformRule><TransformRule name="category" targetProperty="http://schema.org/occupationalCategory">
-        <Input id="unnamed_423" path="/category/tag"/>
+        <Input id="unnamed_2844" path="/category/tag"/>
       </TransformRule><TransformRule name="categoryLabel" targetProperty="http://schema.org/occupationalCategoryLabel">
-        <Input id="unnamed_425" path="/category/label"/>
-      </TransformRule><TransformRule name="jobLocation" targetProperty="http://schema.org/jobLocation">
+        <Input id="unnamed_2846" path="/category/label"/>
+      </TransformRule><TransformRule name="jobLocationUri" targetProperty="http://schema.org/jobLocationUri">
         <TransformInput id="concat1" function="concat">
             <TransformInput id="constant1" function="constant">
             
@@ -50,7 +50,9 @@
           </TransformInput>
             <Param name="glue" value=""/>
           </TransformInput>
-      </TransformRule><TransformRule name="hiringOrganization" targetProperty="http://schema.org/hiringOrganization">
+      </TransformRule><TransformRule name="jobLocation" targetProperty="http://schema.org/jobLocation">
+        <Input id="unnamed_2848" path="/location/display_name"/>
+      </TransformRule><TransformRule name="hiringOrganizationUri" targetProperty="http://schema.org/hiringOrganizationUri">
         <TransformInput id="concat1" function="concat">
             <TransformInput id="constant1" function="constant">
             
@@ -61,17 +63,25 @@
           </TransformInput>
             <Param name="glue" value=""/>
           </TransformInput>
-      </TransformRule><TransformRule name="baseSalary" targetProperty="http://schema.org/baseSalary">
-        <TransformInput id="unnamed_433" function="concat">
-            <TransformInput id="unnamed_430" function="constant">
+      </TransformRule><TransformRule name="hiringOrganization" targetProperty="http://schema.org/hiringOrganization">
+        <Input id="unnamed_2850" path="/company/display_name"/>
+      </TransformRule><TransformRule name="baseSalaryUri" targetProperty="http://schema.org/baseSalaryUri">
+        <TransformInput id="unnamed_2858" function="concat">
+            <TransformInput id="unnamed_2855" function="constant">
             
             <Param name="value" value="http://vocab.edsa.de/search/jobpost/"/>
-          </TransformInput><Input id="unnamed_431" path="/id"/><TransformInput id="unnamed_432" function="constant">
+          </TransformInput><Input id="unnamed_2856" path="/id"/><TransformInput id="unnamed_2857" function="constant">
             
             <Param name="value" value="/salary"/>
           </TransformInput>
             <Param name="glue" value=""/>
           </TransformInput>
+      </TransformRule><TransformRule name="baseSalary" targetProperty="http://schema.org/baseSalary">
+        <Input id="unnamed_2860" path="/salary_max"/>
+      </TransformRule><TransformRule name="latitude" targetProperty="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <Input id="unnamed_2862" path="/latitude"/>
+      </TransformRule><TransformRule name="longitude" targetProperty="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <Input id="unnamed_2864" path="/longitude"/>
       </TransformRule><Outputs>
         <Output id="Results"></Output>
       </Outputs>
