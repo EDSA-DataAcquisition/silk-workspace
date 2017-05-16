@@ -1,88 +1,136 @@
-<TransformSpec>
-        <TransformRule name="type" targetProperty="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-        <TransformInput id="unnamed_2823" function="constantUri">
-            
-            <Param name="value" value="http://www.edsa-project.eu/edsa#JobPosting"/>
-          </TransformInput>
-      </TransformRule><TransformRule name="uri" targetProperty="">
-        <TransformInput id="unnamed_2830" function="concat">
-            <TransformInput id="unnamed_2828" function="constant">
-            
-            <Param name="value" value="http://www.edsa-project.eu/jobpost/"/>
-          </TransformInput><Input id="unnamed_2829" path="/id"/>
-            <Param name="glue" value=""/>
-          </TransformInput>
-      </TransformRule><TransformRule name="source" targetProperty="http://schema.org/source">
+<TransformSpec id="AdzunaTransformationTask">
+        <SourceDataset dataSource="Adzuna" var="a" typeUri="">
+        <RestrictTo>
+          
+        </RestrictTo>
+      </SourceDataset><TransformRule name="type">
+        <TransformInput id="generateType" function="constantUri">
+        
+        <Param name="value" value="http://www.edsa-project.eu/edsa#JobPosting"/>
+      </TransformInput><MappingTarget uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+        <ValueType nodeType="UriValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="uri">
+        <TransformInput id="unnamed_16" function="concat">
+        <TransformInput id="constant0" function="constant">
+        
+        <Param name="value" value="http://www.edsa-project.eu/jobpost/"/>
+      </TransformInput><TransformInput id="encode1" function="urlEncode">
+        <Input id="path1" path="/id"/>
+        <Param name="encoding" value="UTF-8"/>
+      </TransformInput>
+        <Param name="glue" value=""/>
+      </TransformInput>
+      </TransformRule><TransformRule name="source">
         <TransformInput id="constant1" function="constant">
-            
-            <Param name="value" value="adzuna"/>
-          </TransformInput>
-      </TransformRule><TransformRule name="title" targetProperty="http://schema.org/title">
-        <Input id="unnamed_2832" path="/title"/>
-      </TransformRule><TransformRule name="description" targetProperty="http://schema.org/description">
-        <Input id="unnamed_2834" path="/description"/>
-      </TransformRule><TransformRule name="url" targetProperty="http://schema.org/url">
-        <Input id="unnamed_2836" path="/redirect_url"/>
-      </TransformRule><TransformRule name="id" targetProperty="http://www.semanticweb.org/elisasibarani/ontologies/2016/0/untitled-ontology-51#id">
-        <Input id="unnamed_2838" path="/id"/>
-      </TransformRule><TransformRule name="employmentType" targetProperty="http://schema.org/employmentType">
-        <Input id="unnamed_2840" path="/contract_type"/>
-      </TransformRule><TransformRule name="datePosted" targetProperty="http://schema.org/datePosted">
-        <Input id="unnamed_2842" path="/created"/>
-      </TransformRule><TransformRule name="category" targetProperty="http://schema.org/occupationalCategory">
-        <Input id="unnamed_2844" path="/category/tag"/>
-      </TransformRule><TransformRule name="categoryLabel" targetProperty="http://schema.org/occupationalCategoryLabel">
-        <Input id="unnamed_2846" path="/category/label"/>
-      </TransformRule><TransformRule name="jobLocationUri" targetProperty="http://schema.org/jobLocationUri">
+        
+        <Param name="value" value="adzuna"/>
+      </TransformInput><MappingTarget uri="http://schema.org/source">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="title">
+        <Input id="title" path="/title"/><MappingTarget uri="http://schema.org/title">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="description">
+        <Input id="description" path="/description"/><MappingTarget uri="http://schema.org/description">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="url">
+        <Input id="url" path="/redirect_url"/><MappingTarget uri="http://schema.org/url">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="id">
+        <Input id="id" path="/id"/><MappingTarget uri="http://www.semanticweb.org/elisasibarani/ontologies/2016/0/untitled-ontology-51#id">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="employmentType">
+        <Input id="employmentType" path="/contract_type"/><MappingTarget uri="http://schema.org/employmentType">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="datePosted">
+        <Input id="datePosted" path="/created"/><MappingTarget uri="http://schema.org/datePosted">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="category">
+        <Input id="category" path="/category/tag"/><MappingTarget uri="http://schema.org/occupationalCategory">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="categoryLabel">
+        <Input id="categoryLabel" path="/category/label"/><MappingTarget uri="http://schema.org/occupationalCategoryLabel">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="jobLocationUri">
         <TransformInput id="concat1" function="concat">
-            <TransformInput id="constant1" function="constant">
-            
-            <Param name="value" value="http://vocab.dsa.de/search/location/"/>
-          </TransformInput><TransformInput id="urlEncode1" function="urlEncode">
-            <TransformInput id="regexReplace1" function="regexReplace">
-            <TransformInput id="replace1" function="replace">
-            <Input id="unnamed_585" path="/location/display_name"/>
-            <Param name="search" value=","/><Param name="replace" value=""/>
-          </TransformInput>
-            <Param name="regex" value="\W+"/><Param name="replace" value="-"/>
-          </TransformInput>
-            <Param name="encoding" value="UTF-8"/>
-          </TransformInput>
-            <Param name="glue" value=""/>
-          </TransformInput>
-      </TransformRule><TransformRule name="jobLocation" targetProperty="http://schema.org/jobLocation">
-        <Input id="unnamed_2848" path="/location/display_name"/>
-      </TransformRule><TransformRule name="hiringOrganizationUri" targetProperty="http://schema.org/hiringOrganizationUri">
+        <TransformInput id="constant1" function="constant">
+        
+        <Param name="value" value="http://vocab.dsa.de/search/location/"/>
+      </TransformInput><TransformInput id="urlEncode1" function="urlEncode">
+        <TransformInput id="regexReplace1" function="regexReplace">
+        <TransformInput id="replace1" function="replace">
+        <Input id="unnamed_585" path="/location/display_name"/>
+        <Param name="search" value=","/><Param name="replace" value=""/>
+      </TransformInput>
+        <Param name="regex" value="\W+"/><Param name="replace" value="-"/>
+      </TransformInput>
+        <Param name="encoding" value="UTF-8"/>
+      </TransformInput>
+        <Param name="glue" value=""/>
+      </TransformInput><MappingTarget uri="http://schema.org/jobLocationUri">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="jobLocation">
+        <Input id="jobLocation" path="/location/display_name"/><MappingTarget uri="http://schema.org/jobLocation">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="hiringOrganizationUri">
         <TransformInput id="concat1" function="concat">
-            <TransformInput id="constant1" function="constant">
-            
-            <Param name="value" value="http://vocab.dsa.de/search/organization/"/>
-          </TransformInput><TransformInput id="regexReplace1" function="regexReplace">
-            <Input id="unnamed_1525" path="/company/display_name"/>
-            <Param name="regex" value="\W+"/><Param name="replace" value="-"/>
-          </TransformInput>
-            <Param name="glue" value=""/>
-          </TransformInput>
-      </TransformRule><TransformRule name="hiringOrganization" targetProperty="http://schema.org/hiringOrganization">
-        <Input id="unnamed_2850" path="/company/display_name"/>
-      </TransformRule><TransformRule name="baseSalaryUri" targetProperty="http://schema.org/baseSalaryUri">
-        <TransformInput id="unnamed_2858" function="concat">
-            <TransformInput id="unnamed_2855" function="constant">
-            
-            <Param name="value" value="http://vocab.edsa.de/search/jobpost/"/>
-          </TransformInput><Input id="unnamed_2856" path="/id"/><TransformInput id="unnamed_2857" function="constant">
-            
-            <Param name="value" value="/salary"/>
-          </TransformInput>
-            <Param name="glue" value=""/>
-          </TransformInput>
-      </TransformRule><TransformRule name="baseSalary" targetProperty="http://schema.org/baseSalary">
-        <Input id="unnamed_2860" path="/salary_max"/>
-      </TransformRule><TransformRule name="latitude" targetProperty="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
-        <Input id="unnamed_2862" path="/latitude"/>
-      </TransformRule><TransformRule name="longitude" targetProperty="http://www.w3.org/2003/01/geo/wgs84_pos#long">
-        <Input id="unnamed_2864" path="/longitude"/>
+        <TransformInput id="constant1" function="constant">
+        
+        <Param name="value" value="http://vocab.dsa.de/search/organization/"/>
+      </TransformInput><TransformInput id="regexReplace1" function="regexReplace">
+        <Input id="unnamed_1525" path="/company/display_name"/>
+        <Param name="regex" value="\W+"/><Param name="replace" value="-"/>
+      </TransformInput>
+        <Param name="glue" value=""/>
+      </TransformInput><MappingTarget uri="http://schema.org/hiringOrganizationUri">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="hiringOrganization">
+        <Input id="hiringOrganization" path="/company/display_name"/><MappingTarget uri="http://schema.org/hiringOrganization">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="baseSalaryUri">
+        <TransformInput id="unnamed_31" function="concat">
+        <TransformInput id="constant0" function="constant">
+        
+        <Param name="value" value="http://vocab.edsa.de/search/jobpost/"/>
+      </TransformInput><TransformInput id="encode1" function="urlEncode">
+        <Input id="path1" path="/id"/>
+        <Param name="encoding" value="UTF-8"/>
+      </TransformInput><TransformInput id="constant2" function="constant">
+        
+        <Param name="value" value="/salary"/>
+      </TransformInput>
+        <Param name="glue" value=""/>
+      </TransformInput><MappingTarget uri="http://schema.org/baseSalaryUri">
+        <ValueType nodeType="UriValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="baseSalary">
+        <Input id="baseSalary" path="/salary_max"/><MappingTarget uri="http://schema.org/baseSalary">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="latitude">
+        <Input id="latitude" path="/latitude"/><MappingTarget uri="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
+      </TransformRule><TransformRule name="longitude">
+        <Input id="longitude" path="/longitude"/><MappingTarget uri="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <ValueType nodeType="AutoDetectValueType"/>
+      </MappingTarget>
       </TransformRule><Outputs>
         <Output id="Results"></Output>
-      </Outputs>
+      </Outputs><TargetVocabularies>
+        
+      </TargetVocabularies>
       </TransformSpec>
